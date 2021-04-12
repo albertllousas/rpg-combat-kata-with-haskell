@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3de53d724053aa87b5e04cb3cbacc467f40b3905b98684b333a4f4add0b3dc07
+
+name:           rpg-combat-kata-haskell
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/rpg-combat-kata-haskell#readme>
+homepage:       https://github.com/githubuser/rpg-combat-kata-haskell#readme
+bug-reports:    https://github.com/githubuser/rpg-combat-kata-haskell/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/rpg-combat-kata-haskell
+
+library
+  exposed-modules:
+      Attack
+      Character
+      Faction
+      Healing
+      NonCharacter
+  other-modules:
+      Paths_rpg_combat_kata_haskell
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite rpg-combat-kata-haskell-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      RpgCombatSpec
+      Paths_rpg_combat_kata_haskell
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , hspec
+    , rpg-combat-kata-haskell
+  default-language: Haskell2010
