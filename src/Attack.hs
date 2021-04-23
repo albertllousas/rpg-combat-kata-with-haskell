@@ -34,5 +34,4 @@ dealDamage attacker (Attack damage distance) target | attacker == target = Left 
 dealDamageNonCharacter :: Attacker -> Damage -> NonCharacter -> NonCharacter
 dealDamageNonCharacter attacker damage (NonCharacter t h) = NonCharacter t (applyDamage damage h)
 
-
 applyDamage damage health = if health - damage < 0 then 0 else health - damage
