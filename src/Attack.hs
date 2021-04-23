@@ -24,7 +24,6 @@ dealDamage attacker (Attack damage distance) target | attacker == target = Left 
                                                     | isTarget5LevelsBelowAttacker = Right $ attack damageIncreasedBy50Percent
                                                     | otherwise = Right $ attack damage
   where attack = \finalDamage ->  target { health = applyDamage finalDamage (health target) }
-        applyDamage = \d h -> if h - d < 0 then 0 else h - d
         isTarget5LevelsAboveAttacker = (level attacker - level target) < -5
         isTarget5LevelsBelowAttacker = (level target - level attacker) < -5
         damageDecreasedBy50Percent = damage `div` 2
@@ -34,4 +33,6 @@ dealDamage attacker (Attack damage distance) target | attacker == target = Left 
 
 dealDamageNonCharacter :: Attacker -> Damage -> NonCharacter -> NonCharacter
 dealDamageNonCharacter attacker damage (NonCharacter t h) = NonCharacter t (applyDamage damage h)
-    where applyDamage = \d h -> if h - d < 0 then 0 else h - d
+
+
+applyDamage damage health = if health - damage < 0 then 0 else health - damage
